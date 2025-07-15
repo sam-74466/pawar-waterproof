@@ -8,13 +8,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Poppins', sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
-    a { text-decoration: none; color: inherit; }
-
-    nav {
-      display: flex; justify-content: space-between; align-items: center;
-      background: #004466; color: #fff; padding: 1rem 2rem;
-      position: sticky; top: 0; z-index: 1000;
-    }
+    nav { display: flex; justify-content: space-between; align-items: center; background: #004466; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; }
     .logo { font-size: 1.8rem; font-weight: 700; }
     .nav-links { list-style: none; display: flex; gap: 1.5rem; }
     .nav-links a { color: #fff; font-weight: 500; }
@@ -24,149 +18,49 @@
     .slide { position: absolute; top: 0; left: 100%; width: 100%; height: 100%; opacity: 0; transition: 1s ease; }
     .slide.active { left: 0; opacity: 1; }
     .slide img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-text {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center; color: #fff;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-    }
+    .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
     .hero-text h1 { font-size: 2.5rem; animation: fadeUp 0.8s ease-out; }
     .hero-text p { margin: 1rem 0; font-size: 1.2rem; animation: fadeUp 0.9s ease-out; }
-    .cta-btn {
-      background: #ff6600; padding: 0.8rem 1.5rem; color: #fff;
-      border: none; border-radius: 4px; font-weight: 600;
-    }
+    .cta-btn { background: #ff6600; padding: 0.8rem 1.5rem; color: #fff; border: none; border-radius: 4px; font-weight: 600; }
     .cta-btn:hover { background: #e65c00; }
 
-    .slider-control {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      font-size: 2rem; color: #fff; padding: 0.5rem 1rem;
-      cursor: pointer; background: rgba(0, 0, 0, 0.3);
-      user-select: none;
-    }
+    .slider-control { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; color: #fff; padding: 0.5rem 1rem; cursor: pointer; background: rgba(0,0,0,0.3); user-select: none; }
     .prev { left: 10px; }
     .next { right: 10px; }
 
     section { padding: 4rem 2rem; text-align: center; }
     h2 { font-size: 2rem; margin-bottom: 2rem; }
 
-    .services-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-    .service-card {
-      background: #fff; border-radius: 8px; overflow: hidden;
-      transform: scale(0.95); transition: 0.4s;
-    }
-    .service-card:hover { transform: scale(1.03); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+    .service-card { background: #fff; border-radius: 8px; overflow: hidden; transform: scale(0.95); transition: 0.4s; }
+    .service-card:hover { transform: scale(1.03); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     .service-card img { width: 100%; height: 180px; object-fit: cover; }
     .service-card h3 { margin: 1rem 0 .5rem; }
+    .service-card p { padding: 0 1rem 1rem; font-size: 0.95rem; color: #555; }
 
-    .gallery-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;
-    }
-    .gallery-grid img {
-      width: 100%; border-radius: 6px;
-      transition: transform 0.4s, filter 0.4s;
-    }
-    .gallery-grid img:hover {
-      transform: scale(1.05); filter: brightness(1.05);
-    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .gallery-grid img { width: 100%; border-radius: 6px; transition: transform 0.4s, filter 0.4s; }
+    .gallery-grid img:hover { transform: scale(1.05); filter: brightness(1.05); }
 
-    form {
-      max-width: 500px; margin: auto; background: #fff;
-      padding: 2rem; border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-      display: grid; gap: 1rem;
-    }
-    input, textarea {
-      width: 100%; padding: 0.8rem;
-      border: 1px solid #ccc; border-radius: 4px;
-      font-size: 1rem;
-      resize: vertical;
-    }
-    button {
-      padding: 0.8rem; background: #004466; color: #fff;
-      border: none; border-radius: 4px;
-      font-size: 1rem; cursor: pointer;
-    }
+    form { max-width: 500px; margin: auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display: grid; gap: 1rem; }
+    input, textarea { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; resize: vertical; }
+    button { padding: 0.8rem; background: #004466; color: #fff; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; }
     button:hover { background: #006699; }
-
     #formMsg { font-size: 0.9rem; color: green; height: 1.2rem; }
 
-    footer {
-      background: #222; color: #ddd;
-      text-align: center; padding: 1rem;
-    }
+    footer { background: #222; color: #ddd; text-align: center; padding: 1rem; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ONBOARDING SLIDER */
-    #onboarding {
-      background: #fff;
-      padding: 3rem 2rem;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      max-width: 900px;
-      margin: 2rem auto;
-      border-radius: 10px;
-    }
-    .onboarding-slider {
-      position: relative;
-      overflow: hidden;
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .onboarding-slide {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      max-width: 600px;
-      text-align: center;
-      transition: opacity 0.6s ease;
-    }
-    .onboarding-slide.active {
-      display: flex;
-    }
-    .onboarding-slide img {
-      width: 300px;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      object-fit: cover;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .onboarding-slide h3 {
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      color: #004466;
-    }
-    .onboarding-slide p {
-      font-size: 1.1rem;
-      color: #555;
-    }
-    #onboardingPrev, #onboardingNext {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #004466;
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      cursor: pointer;
-      font-size: 1.8rem;
-      border-radius: 5px;
-      user-select: none;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-    #onboardingPrev:hover, #onboardingNext:hover {
-      opacity: 1;
-    }
+    #onboarding { background: #fff; padding: 3rem 2rem; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 900px; margin: 2rem auto; border-radius: 10px; }
+    .onboarding-slider { position: relative; overflow: hidden; height: 400px; display: flex; justify-content: center; align-items: center; }
+    .onboarding-slide { display: none; flex-direction: column; align-items: center; max-width: 600px; text-align: center; transition: opacity 0.6s ease; }
+    .onboarding-slide.active { display: flex; }
+    .onboarding-slide img { width: 300px; border-radius: 10px; margin-bottom: 1rem; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+    .onboarding-slide h3 { margin-bottom: 0.5rem; font-weight: 700; color: #004466; }
+    .onboarding-slide p { font-size: 1.1rem; color: #555; }
+    #onboardingPrev, #onboardingNext { position: absolute; top: 50%; transform: translateY(-50%); background: #004466; color: white; border: none; padding: 0.6rem 1.2rem; cursor: pointer; font-size: 1.8rem; border-radius: 5px; user-select: none; opacity: 0.8; transition: opacity 0.3s; }
+    #onboardingPrev:hover, #onboardingNext:hover { opacity: 1; }
     #onboardingPrev { left: 5px; }
     #onboardingNext { right: 5px; }
   </style>
@@ -174,135 +68,131 @@
 <body>
 
 
-<nav>
-  <div class="logo">Pawar Waterproofing</div>
-  <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <nav>
+    <div class="logo">
+  <img src="https://i.postimg.cc/hvfjVBJP/logo.jpg" alt="Pawar Waterproofing Logo" style="height: 50px;">
+</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-
-<section id="hero" class="hero-slider">
-  <div class="slide active">
-    <img src="https://via.placeholder.com/1200x500?text=Waterproofing+1" alt="Waterproofing 1" />
-    <div class="hero-text">
-      <h1>Keep Your Space Dry</h1>
-      <p>We help stop leaks before they become a problem.</p>
-      <a href="#contact" class="cta-btn">Get a Free Quote</a>
+  
+  <section id="hero" class="hero-slider">
+    <div class="slide active">
+      <img src="https://i.postimg.cc/44jct9Bz/IMG-20250714-WA0045.jpg" alt="Waterproofing " />
+      <div class="hero-text">
+        <h1>Keep Your Space Dry</h1>
+        <p>We stop leaks before they become a bigger problem.</p>
+        <a href="#contact" class="cta-btn">Get a Free Quote</a>
+      </div>
     </div>
-  </div>
-  <div class="slide">
-    <img src="https://via.placeholder.com/1200x500?text=Waterproofing+2" alt="Waterproofing 2" />
-    <div class="hero-text">
-      <h1>Say Goodbye to Damp Walls</h1>
-      <p>Smart waterproofing for your home or hostel!</p>
-      <a href="#contact" class="cta-btn">Let's Talk</a>
+    <div class="slide">
+      <img src="https://i.postimg.cc/gjX6KdC2/wproofing-image.jpg" alt="Waterproofing " />
+      <div class="hero-text">
+        <h1>Say Goodbye to Damp Walls</h1>
+        <p>Smart waterproofing for homes, hostels & more!</p>
+        <a href="#contact" class="cta-btn">Let’s Chat</a>
+      </div>
     </div>
-  </div>
-  <div class="slider-control prev">&#10094;</div>
-  <div class="slider-control next">&#10095;</div>
-</section>
+    <div class="slider-control prev">&#10094;</div>
+    <div class="slider-control next">&#10095;</div>
+  </section>
 
-
-<section id="onboarding">
-  <h2>How It Works</h2>
-  <div class="onboarding-slider">
-    <div class="onboarding-slide active">
-      <img src="https://via.placeholder.com/300x200?text=Inspection" alt="Inspection" />
-      <h3>Step 1: We Check Things Out</h3>
-      <p>We come to your place, check for leaks, cracks or damp spots.</p>
+  
+  <section id="onboarding">
+    <h2>How It Works</h2>
+    <div class="onboarding-slider">
+      <div class="onboarding-slide active">
+        <img src="https://via.placeholder.com/300x200?text=Inspection" alt="Inspection" />
+        <h3>Step 1: We Check Things Out</h3>
+        <p>We inspect your place to spot cracks or damp areas.</p>
+      </div>
+      <div class="onboarding-slide">
+        <img src="https://via.placeholder.com/300x200?text=Planning" alt="Planning" />
+        <h3>Step 2: We Make a Plan</h3>
+        <p>We design a simple solution that fits your needs.</p>
+      </div>
+      <div class="onboarding-slide">
+        <img src="https://via.placeholder.com/300x200?text=Work" alt="Work" />
+        <h3>Step 3: We Get It Done</h3>
+        <p>Our team applies top-quality waterproofing neatly and quickly.</p>
+      </div>
+      <button id="onboardingPrev">&#10094;</button>
+      <button id="onboardingNext">&#10095;</button>
     </div>
-    <div class="onboarding-slide">
-      <img src="https://via.placeholder.com/300x200?text=Planning" alt="Planning" />
-      <h3>Step 2: Make a Plan</h3>
-      <p>Based on what we see, we make a custom plan that fits your budget.</p>
+  </section>
+
+  
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <!-- Existing -->
+      <div class="service-card"><img src="https://i.postimg.cc/GpMFJbMZ/basment-waterproofing.jpgt"alt="Basement Waterproofing"/><h3>Basement Waterproofing</h3><p>Stop moisture from ruining your foundation.</p></div>
+      <div class="service-card"><img src="https://i.postimg.cc/15P8tLB6/roof-coating.jpg" alt="Roof Coating"/><h3>Roof Coating</h3><p>Shield your roof from rain, sun and heat.</p></div>
+      <div class="service-card"><img src="https://i.postimg.cc/3R5Kqvbp/bathroom-celling.jpg" alt="Bathroom Sealing"/><h3>Bathroom Sealing</h3><p>Keep water where it belongs—inside the tub!</p></div>
+      <!-- New -->
+      <div class="service-card"><img src="https://i.postimg.cc/vT8dRL71/pu-injection.jpg" alt="PU Injection"/><h3>PU Injection</h3><p>Pump in resin that expands inside cracks to seal leaks instantly.</p></div>
+      <div class="service-card"><img src="https://i.postimg.cc/pTxw8Y60/bathrom-grouting.jpg" alt="Bathroom Grouting"/><h3>Bathroom Grouting</h3><p>Re‑seal tile joints using waterproof grout—no more moldy gaps.</p></div>
+      <div class="service-card"><img src="https://i.postimg.cc/LsSC0435/seepage-and-leakage-control.jpg" alt="Seepage & Leakage Control"/><h3>Seepage & Leakage Control</h3><p>We find damp areas in walls/floors and stop water from seeping in.</p></div>
+      <div class="service-card"><img src="https://i.postimg.cc/ZqYg5KBg/floor-leakage-repair.jpg" alt="Floor Leakage Repair"/><h3>Floor Leakage Repair</h3><p>Seal cracks or holes in balconies, terraces, or flooring.</p></div>
+      <div class="service-card"><img src="https://i.postimg.cc/8cLwbqfM/brick-bat-waterproofing.jpg" alt="Brickbat Waterproofing"/><h3>Brickbat Waterproofing</h3><p>Use waterproof bricks and layers to protect terrace roofs from rain.</p></div>
     </div>
-    <div class="onboarding-slide">
-      <img src="https://via.placeholder.com/300x200?text=Work" alt="Installation" />
-      <h3>Step 3: Get It Done</h3>
-      <p>Our team comes in and does the waterproofing – easy, clean, and fast!</p>
-    </div>
-    <button id="onboardingPrev">&#10094;</button>
-    <button id="onboardingNext">&#10095;</button>
-  </div>
-</section>
+  </section>
 
-
-<section id="services">
-  <h2>Our Services</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <img src="https://via.placeholder.com/300x200?text=Basement" alt="Basement Waterproofing"/>
-      <h3>Basement Waterproofing</h3>
-      <p>Say goodbye to wet floors and damp smells.</p>
-    </div>
-    <div class="service-card">
-      <img src="https://via.placeholder.com/300x200?text=Roof" alt="Roof Coating"/>
-      <h3>Roof Coating</h3>
-      <p>Protect your roof from rain and heat damage.</p>
-    </div>
-    <div class="service-card">
-      <img src="https://via.placeholder.com/300x200?text=Bathroom" alt="Bathroom Sealing"/>
-      <h3>Bathroom Sealing</h3>
-      <p>We seal up your bathroom so water stays where it should.</p>
-    </div>
-  </div>
-</section>
-
-
-<section id="gallery">
-  <h2>Before & After</h2>
-  <div class="gallery-grid">
-    <img src="https://via.placeholder.com/300x200?text=Before" alt="Before Project" />
-    <img src="https://via.placeholder.com/300x200?text=During" alt="During Project" />
-    <img src="https://via.placeholder.com/300x200?text=After" alt="After Project" />
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Need Help with Leaks?</h2>
-  <form id="leadForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-    <input type="text" name="name" placeholder="Your Full Name" required />
-    <input type="email" name="email" placeholder="Email Address" required />
-    <input type="tel" name="phone" placeholder="Phone Number" required />
-    <textarea name="message" placeholder="Tell us about the issue..." required></textarea>
-    <button type="submit">Send Request</button>
-    <p id="formMsg"></p>
-  </form>
-</section>
-
-
-<footer>
-  <p> Pawar Waterproofing.</p>
-</footer>
-
-<script>
  
-  const slides = document.querySelectorAll('.slide');
-  let current = 0;
-  function showSlide(n) {
-    slides[current].classList.remove('active');
-    current = (n + slides.length) % slides.length;
-    slides[current].classList.add('active');
-  }
-  document.querySelector('.next').onclick = () => showSlide(current + 1);
-  document.querySelector('.prev').onclick = () => showSlide(current - 1);
-  setInterval(() => showSlide(current + 1), 7000);
+  <section id="gallery">
+    <h2>Project Gallery</h2>
+    <div class="gallery-grid">
+      <img src="https://i.postimg.cc/dVXYpyS6/IMG-20250715-WA0014.jpg" alt="Before Project" />
+      <img src="https://i.postimg.cc/fRWcp30V/IMG-20250715-WA0005.jpg" alt="During Project" />
+      <img src="https://i.postimg.cc/6Q0hTrJL/IMG-20250715-WA0006.jpg" alt="After Project" />
+    </div>
+  </section>
 
-  // Onboarding Slider
-  const onboardingSlides = document.querySelectorAll('.onboarding-slide');
-  let currentOnboarding = 0;
-  function showOnboardingSlide(n) {
-    onboardingSlides[currentOnboarding].classList.remove('active');
-    currentOnboarding = (n + onboardingSlides.length) % onboardingSlides.length;
-    onboardingSlides[currentOnboarding].classList.add('active');
-  }
-  document.getElementById('onboardingNext').onclick = () => showOnboardingSlide(currentOnboarding + 1);
-  document.getElementById('onboardingPrev').onclick = () => showOnboardingSlide(currentOnboarding - 1);
-</script>
+ 
+  <section id="contact">
+    <h2>Need Help? Ask Us! 24/7 </h2>
+    <form id="leadForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Your Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <textarea name="message" placeholder="Tell us what you need..." required></textarea>
+      <button type="submit">Send Request</button>
+      <p id="formMsg"></p>
+    </form>
+  </section>
+
+ 
+  <footer>
+    <p> powerd by munjabhau pawar. </p>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    function showSlide(n) {
+      slides[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+    }
+    document.querySelector('.next').onclick = () => showSlide(current + 1);
+    document.querySelector('.prev').onclick = () => showSlide(current - 1);
+    setInterval(() => showSlide(current + 1), 7000);
+
+    const onboardingSlides = document.querySelectorAll('.onboarding-slide');
+    let currentOnboarding = 0;
+    function showOnboardingSlide(n) {
+      onboardingSlides[currentOnboarding].classList.remove('active');
+      currentOnboarding = (n + onboardingSlides.length) % onboardingSlides.length;
+      onboardingSlides[currentOnboarding].classList.add('active');
+    }
+    document.getElementById('onboardingNext').onclick = () => showOnboardingSlide(currentOnboarding + 1);
+    document.getElementById('onboardingPrev').onclick = () => showOnboardingSlide(currentOnboarding - 1);
+  </script>
 
 </body>
 </html>
