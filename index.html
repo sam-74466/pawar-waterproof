@@ -124,11 +124,9 @@
   <section id="contact">
   <h2>Need Help? Ask Us! 24/7</h2>
 
-  <form id="leadForm">
+  <form id="leadForm" action="https://script.google.com/macros/s/AKf.../exec" method="POST">
   <input type="text" name="name" placeholder="Your Name" required />
-  
-  <input type="tel" name="phone" placeholder="Your Phone Number" required />
-  
+  <input type="text" name="phone" placeholder="Phone Number" required />
   <select name="problem" required>
     <option value="">-- Select Problem --</option>
     <option value="Roof Waterproofing">Roof Waterproofing</option>
@@ -137,15 +135,14 @@
     <option value="PU Injection Grouting">PU Injection Grouting</option>
     <option value="Epoxy Flooring">Epoxy Flooring</option>
     <option value="Crack Filling">Crack Filling</option>
-    <option value="wall seepage">wall seepage</option>
-    <option value="other">other</option>
+    <option value="Plumbing Work">Plumbing Work</option>
   </select>
-  
-  <textarea name="message" placeholder="Describe your issue..." required></textarea>
-  
-  <button type="submit">Send Request</button>
-  <p id="formMsg"></p>
+  <textarea name="message" placeholder="Message (optional)"></textarea>
+  <button type="submit">Submit</button>
 </form>
+
+<p id="formMsg"></p>
+
 
 
   <div class="contact-info">
@@ -219,8 +216,7 @@
       message: form.message.value
     };
 
-    const scriptURL = "const scriptURL = "https://script.google.com/macros/s/AKfycbxAI6Q0Qczy24Ieuvyi_RIQI1hXSauoVmuqbuE3Dvc-CBLZPzc6fUFTImsOwzBB8blb/exec";
-"; // 🔁 Replace with your actual deployed Apps Script URL
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzxEnNRg0eVaKpC3KuQ2CLeRcTNGCkG96ayM6kJ9WsEos2I6UaSi8Vbz0cleRKeQtHR/exec";
 
     try {
       const res = await fetch(scriptURL, {
