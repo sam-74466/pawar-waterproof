@@ -5,7 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pawar Waterproofing</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
-  <style>
+  <style>.float-btn {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-decoration: none;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.float-btn:hover {
+  transform: scale(1.05);
+}
+
+/* WhatsApp Button (Left Bottom) */
+.whatsapp-float {
+  bottom: 90px;
+  left: 20px;
+  background-color: #25D366;
+}
+
+/* Call Button (Right Bottom) */
+.call-float {
+  bottom: 30px;
+  right: 20px;
+  background-color: #0a66c2;
+}
+
+.float-btn img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.float-btn span {
+  font-size: 14px;
+}
+
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Poppins', sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
     nav { display: flex; justify-content: space-between; align-items: center; background: #004466; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; }
@@ -38,10 +82,58 @@
     .service-card h3 { margin: 1rem 0 .5rem; }
     .service-card p { padding: 0 1rem 1rem; font-size: 0.95rem; color: #555; }
 
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-    .gallery-grid img { width: 100%; border-radius: 6px; transition: transform 0.4s, filter 0.4s; }
-    .gallery-grid img:hover { transform: scale(1.05); filter: brightness(1.05); }
+    /* --- Gallery Styles --- */
+#gallery {
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
 
+.gallery-item {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.05);
+}
+
+#lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+#lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
     form { max-width: 500px; margin: auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display: grid; gap: 1rem; }
     input, textarea { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; resize: vertical; }
     button { padding: 0.8rem; background: #004466; color: #fff; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; }
@@ -60,8 +152,44 @@
       .nav-links { flex-direction: column; gap: 1rem; margin-top: 1rem; }
       .hero-text h1 { font-size: 1.8rem; }
       .hero-text p { font-size: 1rem; }
+    }<head>
+  <style>
+    /* your existing styles... */
+    
+    /* 📌 Add this at the end of that <style> block */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      background-color: #25d366;
+      border-radius: 50%;
+      padding: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+    .whatsapp-float img {
+      width: 36px;
+      height: 36px;
+    }
+    @media (max-width: 768px) {
+      .whatsapp-float {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px;
+      }
+      .whatsapp-float img {
+        width: 30px;
+        height: 30px;
+      }
     }
   </style>
+
+
+ 
 </head>
 <body>
 
@@ -77,26 +205,25 @@
     </ul>
   </nav>
 
-  <section id="hero" class="hero-slider">
-    <div class="slide active">
-      <img src="https://i.postimg.cc/44jct9Bz/IMG-20250714-WA0045.jpg" alt="Waterproofing" />
-      <div class="hero-text">
-        <h1>Keep Your Space Dry</h1>
-        <p>We stop leaks before they become a bigger problem.</p>
-        <a href="#contact" class="cta-btn">Get a Free Quote</a>
-      </div>
-    </div>
-    <div class="slide">
-      <img src="https://i.postimg.cc/gjX6KdC2/wproofing-image.jpg" alt="Waterproofing" />
-      <div class="hero-text">
-        <h1>Say Goodbye to Damp Walls</h1>
-        <p>Smart waterproofing for homes, hostels & more!</p>
-        <a href="#contact" class="cta-btn">Let’s Chat</a>
-      </div>
-    </div>
-    <div class="slider-control prev">&#10094;</div>
-    <div class="slider-control next">&#10095;</div>
-  </section>
+  <section id="hero" class="water-drop-hero">
+  <div class="hero-text">
+    <h1>Keep Your Space Dry</h1>
+    <p>We stop leaks before they become a bigger problem.</p>
+    <a href="contact.html" class="cta-btn">Get a Free Quote</a>
+  </div>
+
+  <!-- Animated water droplets -->
+  <div class="drip-container">
+    <div class="drop ripple"></div>
+    <div class="drop delay-1 ripple"></div>
+    <div class="drop delay-2 ripple"></div>
+    <div class="drop delay-3 ripple"></div>
+  </div>
+</section>
+
+
+
+
 
 <section id="services">
   <h2 style="text-align:center; font-size: 2rem; margin-bottom: 2rem;">Our Services</h2>
@@ -113,7 +240,7 @@
     <img src=https://i.postimg.cc/wvcjNwc3/pu-injection.jpg" alt="PU Injection Waterproofing" />
     <div class="card-summary">
       <h3>PU Injection Waterproofing</h3>
-      <p>Stops active water leakage in concrete cracks and joints.</p>
+      <p>Stops active water leakage in concrete cracks and joints with Pawar Waterproofing’s expert.</p>
     </div>
     <div class="toggle-icon">+</div>
   </div>
@@ -264,7 +391,7 @@
         <img src="https://i.postimg.cc/dVyvdWJv/bathrom-grouting.jpg" alt="Roof Waterproofing" />
         <div class="card-summary">
           <h3>Epoxy Grouting Waterproofing</h3>
-          <p>Seal cracks, voids & joints with strong, chemical-resistant epoxy grouting by Pawar Waterproofing. Ideal for industrial floors, basements, and structural repairs. </p>
+          <p>Seal cracks, voids & joints with strong, chemical-resistant epoxy grouting by Pawar Waterproofing. Ideal for industrial floors, basements, and structural repairs with Pawar Waterproofing’s expert. </p>
         </div>
         <div class="toggle-icon">+</div>
       </div>
@@ -417,7 +544,7 @@
         <img src="https://i.postimg.cc/L5nGSXXR/IMG-20250715-WA0005.jpg" alt="Roof Waterproofing" />
         <div class="card-summary">
           <h3>Roof Waterproofing</h3>
-          <p>Protect your roof from cracks, heat & heavy rain damage. </p>
+          <p>Protect your roof from cracks, heat & heavy rain damage with Pawar Waterproofing’s expert. </p>
         </div>
         <div class="toggle-icon">+</div>
       </div>
@@ -725,7 +852,7 @@
       <div class="card-header">
         <img src="https://i.postimg.cc/PrfQPczp/wproofing-image.jpg" alt="Roof Waterproofing" />
         <div class="card-summary">
-          <h3>Commercial Shade Waterproofing in .</h3>
+          <h3>Commercial Shade Waterproofing .</h3>
           <p>Protect your factory, warehouse, showroom, or commercial roof shed from rain leakage and rust with expert shade waterproofing by Pawar Waterproofing. </p>
         </div>
         <div class="toggle-icon">+</div>
@@ -878,7 +1005,7 @@
       <div class="card-header">
         <img src="https://i.postimg.cc/SKjyRyjT/water-tank-waterproofing.webp" alt="Roof Waterproofing" />
         <div class="card-summary">
-          <h3>tank waterproofing in.</h3>
+          <h3>tank waterproofing .</h3>
           <p>Ensure safe, clean, and leak-free water storage with professional tank waterproofing by Pawar Waterproofing. </p>
         </div>
         <div class="toggle-icon">+</div>
@@ -1040,7 +1167,7 @@ Tank Surface Cleaning & Inspection:  </strong> We clean the tank thoroughly and 
       <div class="card-header">
         <img src="https://i.postimg.cc/3N162vcg/Screenshot-20250715-202406.jpg" alt="Roof Waterproofing" />
         <div class="card-summary">
-          <h3>crack fillingin .</h3>
+          <h3>crack filling .</h3>
           <p>Seal visible and hidden cracks to prevent water seepage, dampness, and long-term structural damage with Pawar Waterproofing’s expert crack filling service. </p>
         </div>
         <div class="toggle-icon">+</div>
@@ -1341,30 +1468,234 @@ Crack Inspection & Mapping:  </strong> We inspect and mark all cracks—horizont
 .phone {
   font-size: 1rem;
   color: #333;
+}/* --- Water Drop Hero with Realistic Animation --- */
+.water-drop-hero {
+  position: relative;
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #003344 0%, #001c2b 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+  text-align: center;
 }
+
+.water-drop-hero .hero-text {
+  z-index: 2;
+  animation: fadeUp 1.5s ease-out;
+}
+
+.drip-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.drop {
+  position: absolute;
+  top: -10%;
+  width: 12px;
+  height: 12px;
+  background: rgba(173, 216, 230, 0.85);
+  border-radius: 50%;
+  animation: dripFall 3s infinite;
+}
+
+.drop.delay-1 {
+  left: 35%;
+  animation-delay: 1s;
+}
+
+.drop.delay-2 {
+  left: 55%;
+  animation-delay: 1.5s;
+}
+
+.drop.delay-3 {
+  left: 45%;
+  animation-delay: 2s;
+}
+
+@keyframes dripFall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(85vh) scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(90vh) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Ripple effect where drops land */
+.ripple::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 30px;
+  height: 10px;
+  background: rgba(173, 216, 230, 0.5);
+  border-radius: 50%;
+  animation: rippleExpand 3s infinite;
+}
+
+@keyframes rippleExpand {
+  0%, 85% {
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
+  90% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 0;
+  }
+}/* --- Realistic Water Drop Hero with Shadows and Ripples --- */
+.water-drop-hero {
+  position: relative;
+  height: 100vh;
+  background: radial-gradient(circle at top, #022c43 0%, #011626 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}
+
+.water-drop-hero .hero-text {
+  z-index: 2;
+  animation: fadeUp 1.5s ease-out;
+}
+
+.drip-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.drop {
+  position: absolute;
+  top: -10%;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 30% 30%, #b4e1fa, #6cc0e0);
+  border-radius: 50%;
+  animation: dripFall 3s infinite;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Shadow under the drop */
+}
+
+.drop::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  filter: blur(0.5px);
+} /* highlight dot */
+
+.drop.delay-1 {
+  left: 30%;
+  animation-delay: 1s;
+}
+.drop.delay-2 {
+  left: 50%;
+  animation-delay: 1.8s;
+}
+.drop.delay-3 {
+  left: 70%;
+  animation-delay: 2.5s;
+}
+
+@keyframes dripFall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(85vh) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(90vh) scale(0.1);
+    opacity: 0;
+  }
+}
+
+/* Ripple impact at bottom */
+.ripple::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 40px;
+  height: 12px;
+  background: rgba(173, 216, 230, 0.3);
+  border-radius: 50%;
+  animation: rippleExpand 3s infinite;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes rippleExpand {
+  0%, 85% {
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
+  90% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(-50%) scale(1.3);
+    opacity: 0;
+  }
+}
+
 </style>
 
-<script>
-  function toggleService(card) {
-    card.classList.toggle('open');
-    const icon = card.querySelector('.toggle-icon');
-    icon.textContent = card.classList.contains('open') ? '−' : '+';
-  }
 </script>
 
-
-
-
-
-
-  <section id="gallery">
-    <h2>Project Gallery</h2>
-    <div class="gallery-grid">
-      <img src="https://i.postimg.cc/dVXYpyS6/IMG-20250715-WA0014.jpg" alt="Before Project" />
-      <img src="https://i.postimg.cc/fRWcp30V/IMG-20250715-WA0005.jpg" alt="During Project" />
-      <img src="https://i.postimg.cc/6Q0hTrJL/IMG-20250715-WA0006.jpg" alt="After Project" />
+ <section id="gallery">
+  <h2 style="text-align:center; font-size:2rem; margin-bottom:1.5rem;">Our Project Gallery</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://i.postimg.cc/1X2WkNvh/bathrom-grouting.jpg" alt="Work 1" onclick="openLightbox(this)">
     </div>
-  </section>
+    <div class="gallery-item">
+      <img src="https://i.postimg.cc/MTGdXY4J/IMG-20250715-WA0006.jpg" alt="Work 2" onclick="openLightbox(this)">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.postimg.cc/T1L0J3fk/pu-injection.jpg" alt="Work 3" onclick="openLightbox(this)">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.postimg.cc/m27qvmWm/work-chakan.jpg" alt="Work 4" onclick="openLightbox(this)">
+    </div>
+  </div>
+
+  <!-- Lightbox popup -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+  </div>
+</section>
 
   <section id="contact">
   <h2>Need Help? Ask Us! 24/7</h2>
@@ -1393,6 +1724,37 @@ Crack Inspection & Mapping:  </strong> We inspect and mark all cracks—horizont
   <button type="submit">Submit</button>
 </form>
 
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919226948412?text=Hi%20Pawar%20Waterproofing%2C%20I%20need%20help%20with%20a%20leak" 
+   class="float-btn whatsapp-float" 
+   target="_blank" 
+   aria-label="Chat on WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  <span>WhatsApp</span>
+</a>
 
+<!-- Floating Call Button -->
+<a href="tel:+919226948412" 
+   class="float-btn call-float" 
+   aria-label="Call Now">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Phone_font_awesome.svg" alt="Call Icon" />
+  <span>+91 9226948412</span>
+</a>
+
+
+</body>
+</html>
+<script>
+  function openLightbox(imgElement) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    lightboxImg.src = imgElement.src;
+    lightbox.style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
 </body>
 </html>
