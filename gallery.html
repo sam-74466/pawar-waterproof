@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery - Pawar Waterproofing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
+      color: #333;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url('https://i.postimg.cc/tR9kXxtc/fog-texture.png') repeat;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    section#gallery {
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #003366;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .filter-buttons {
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-buttons button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      margin: 5px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .filter-buttons button:hover {
+      background: #0056b3;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+
+    .gallery-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      transition: transform 0.5s, filter 0.5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.12) rotate(1.5deg);
+      filter: brightness(1.1) saturate(1.2);
+    }
+
+    .gallery-item figcaption {
+      padding: 10px;
+      font-size: 14px;
+      color: #555;
+      text-align: center;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      cursor: zoom-out;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #lightbox.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    #download-btn {
+      position: absolute;
+      bottom: 30px;
+      right: 40px;
+      padding: 10px 15px;
+      background: #fff;
+      color: #333;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .floating-buttons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      color: white;
+      font-size: 22px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+      position: relative;
+      animation: pulse 2s infinite;
+    }
+
+    .floating-buttons a:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-btn {
+      background: #25D366;
+    }
+
+    .call-btn {
+      background: #007bff;
+    }
+
+    .floating-buttons a::after {
+      content: attr(data-title);
+      position: absolute;
+      right: 65px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .floating-buttons a:hover::after {
+      opacity: 1;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0,0,0,0.3); }
+      70% { box-shadow: 0 0 0 12px rgba(0,0,0,0); }
+      100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+    }
+  </style>
+</head>
+<body>
+
+<section id="gallery">
+  <h2>Our Project Gallery</h2>
+
+  <!-- Filter Buttons -->
+  <div class="filter-buttons">
+    <button onclick="filterGallery('all')">All</button>
+    <button onclick="filterGallery('thermal')">Thermal Scanning</button>
+    <button onclick="filterGallery('pu')">PU Injection</button>
+    <button onclick="filterGallery('epoxy')">Epoxy Grouting</button>
+    <button onclick="filterGallery('roof')">Roof Waterproofing</button>
+    <button onclick="filterGallery('tank')">Tank Waterproofing</button>
+    <button onclick="filterGallery('podium')">Podium Waterproofing</button>
+    <button onclick="filterGallery('crack')">Crack Filling</button>
+    <button onclick="filterGallery('plumbing')">Plumbing Work</button>
+  </div>
+
+  <!-- Gallery Grid -->
+  <div class="gallery-grid">
+    <div class="gallery-item thermal">
+      <figure>
+        <img src="https://i.postimg.cc/Fzt87rYC/thermal.jpg" alt="Thermal Scanning" loading="lazy" onclick="openLightbox(this)">
+        <figcaption>Thermal Scanning</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-item pu">
+      <figure>
+        <img src="https://i.postimg.cc/T1L0J3fk/pu-injection.jpg" alt="PU Injection" loading="lazy" onclick="openLightbox(this)">
+        <figcaption>PU Injection on Roof</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-item epoxy">
+      <figure>
+        <img src="https://i.postimg.cc/dVyvdWJv/bathrom-grouting.jpg" alt="Epoxy Grouting" loading="lazy" onclick="openLightbox(this)">
+        <figcaption>Epoxy Grouting</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-item roof">
+      <figure>
+        <img src="https://i.postimg.cc/L5nGSXXR/IMG-20250715-WA0005.jpg" alt="Roof Work" loading="lazy" onclick="openLightbox(this)">
+        <figcaption>Roof Waterproofing</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-item tank">
+      <figure>
+        <img src="https://i.postimg.cc/SKjyRyjT/water-tank-waterproofing.webp" alt="Tank Work" loading="lazy" onclick="openLightbox(this)">
+        <figcaption>Tank Waterproofing</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-item podium">
+      <figure>
+        <img src="https://postimage.me/images/2025/08/08/images546.jpeg" alt="Podium Work" loading="lazy" onclick="openLightbox(this)">
+        <figcaption>Podium Waterproofing</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-item crack">
+      <figure>
+        <img src="https://i.postimg.cc/bNWcmB7R/IMG-20250717-WA0081.jpg" alt="Crack Filling" loading="lazy" onclick="openLightbox(this)">
+        <figcaption>Crack Filling</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-item plumbing">
+      <figure>
+        <img src="https://i.postimg.cc/5Nh4yc8b/plumbing-work.webp" alt="Plumbing" loading="lazy" onclick="openLightbox(this)">
+        <figcaption>Plumbing Work</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Preview">
+  <a id="download-btn" href="" download>Download</a>
+</div>
+
+<!-- Floating WhatsApp & Call Buttons -->
+<div class="floating-buttons">
+  <a href="https://wa.me/919226948412" class="whatsapp-btn" target="_blank" data-title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="tel:+919226948412" class="call-btn" data-title="Call Now">
+    <i class="fas fa-phone-alt"></i>
+  </a>
+</div>
+
+<!-- Scripts -->
+<script>
+  function openLightbox(img) {
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('download-btn').href = img.src;
+    document.getElementById('lightbox').classList.add('show');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('show');
+  }
+
+  function filterGallery(category) {
+    const items = document.querySelectorAll('.gallery-item');
+    items.forEach(item => {
+      item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    observer.observe(item);
+  });
+</script>
+
+</body>
+</html>
