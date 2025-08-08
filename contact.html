@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Pawar Waterproofing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: Arial, sans-serif;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .contact-page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      transition: background-image 0.6s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 40px;
+    }
+
+    .contact-form {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 100%;
+      color: white;
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    .submit-btn {
+      background-color: #25d366;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #1eb858;
+    }
+
+    @media (max-width: 600px) {
+      .contact-form {
+        padding: 20px;
+      }
+
+      .contact-form h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="contact-page" id="contactBackground" style="background-image: url('https://i.postimg.cc/dV0ftQY1/contact-bg-default.jpg');">
+  <form class="contact-form">
+    <h2>Contact Us</h2>
+
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Mobile Number</label>
+      <input type="tel" id="phone" required>
+    </div>
+
+    <div class="form-group">
+      <label for="problem">Select Problem</label>
+      <select id="problem" onchange="changeBackground()" required>
+        <option value="default">-- Choose Problem --</option>
+       <option value="thermal">Thermal Scanning</option>
+        <option value="roof">Roof waterproofing</option>
+        <option value="tank">Tank waterproofing</option>
+        <option value="basement">Basement waterproofing</option>
+        <option value="pu">PU Injection Grouting</option>
+        <option value="epoxy">Epoxy Flooring</option>
+        <option value="crack">Crack Filling</option>
+        <option value="plumbing">Plumbing Work</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Your Message</label>
+      <textarea id="message" placeholder="Describe the issue..." required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div>
+
+<script>
+  function changeBackground() {
+    const bg = document.getElementById('contactBackground');
+    const problem = document.getElementById('problem').value;
+
+    const images = {
+      default: "https://i.postimg.cc/bdX28B18/logo.jpg",
+      Thermal: "https://i.postimg.cc/nh1qxq7v/thermal.jpg",
+      roof: "https://i.postimg.cc/L5nGSXXR/IMG-20250715-WA0005.jpg",
+      tank: "https://i.postimg.cc/SKjyRyjT/water-tank-waterproofing.webp",
+      basement: "https://i.postimg.cc/65r5P3by/basement.jpg",
+      pu: "https://i.postimg.cc/wvcjNwc3/pu-injection.jpg",
+      epoxy: "https://i.postimg.cc/dVyvdWJv/bathrom-grouting.jpg",
+      crack: "https://i.postimg.cc/bNWcmB7R/IMG-20250717-WA0081.jpg",
+      plumbing: "https://i.postimg.cc/5Nh4yc8b/plumbing-work.webp",
+      other: "https://i.postimg.cc/tRfXJ6w1/other.jpg"
+    };
+
+    bg.style.backgroundImage = `url('${images[problem] || images.default}')`;
+  }
+</script>
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<div class="floating-buttons">
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919226948412" class="whatsapp-btn" target="_blank" data-title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Call Button -->
+  <a href="tel:+919226948412" class="call-btn" data-title="Call Now">
+    <i class="fas fa-phone-alt"></i>
+  </a>
+</div>
+</body>
+</html>
