@@ -40,6 +40,37 @@
       .contact-form { padding: 20px; }
       .contact-form h2 { font-size: 22px; }
     }
+/* Navigation Menu */
+nav{
+  position: fixed;
+  top:0;
+  width:100%;
+  background: rgba(0,0,0,0.7);
+  padding:10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index:10;
+}
+nav h1{
+  font-size:1.5rem;
+  color:#00e6e6;
+}
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+nav ul li a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:color 0.3s;
+}
+nav ul li a:hover{
+  color:#00e6e6;
+}
+
 
     /* Floating Buttons */
     .floating-buttons {
@@ -55,7 +86,14 @@
   </style>
 </head>
 <body>
-
+<nav>
+  <h1>Pawar Waterproofing</h1>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallery.html" style="color:#00e6e6;">Gallery</a></li>
+    <li><a href="services.html">services</a></li>
+  </ul>
+</nav>
 <div class="contact-page" id="contactBackground" style="background-image: url('https://i.postimg.cc/dV0ftQY1/contact-bg-default.jpg');">
   <form class="contact-form" id="contactForm" action="https://formsubmit.co/munjabhaupawar9@gmail.com" method="POST">
     <h2>Contact Us</h2>
