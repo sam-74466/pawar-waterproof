@@ -214,6 +214,12 @@ nav a:hover{color:var(--yellow);}
 @media(max-width:900px){
   .contact-wrap{grid-template-columns:1fr}
   .contact-hero h1{font-size:2.1rem}
+  .form-group input,
+.form-group textarea,
+.form-group select{
+  box-sizing:border-box;
+}
+
 }
 </style>
 </head>
@@ -263,57 +269,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- FORM -->
- <form onsubmit="event.preventDefault(); submitEnquiry();">
-  <input type="text" id="name" placeholder="Your Name" required>
-  <input type="tel" id="phone" placeholder="Mobile Number" required>
+<div class="contact-form">
+  <form onsubmit="event.preventDefault(); submitEnquiry();">
 
- <select id="service" required>
-  <option value="">Select Service</option>
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" id="name" placeholder="Your Name" required>
+    </div>
 
-  <!-- Core Waterproofing -->
-  <option>Roof Waterproofing</option>
-  <option>Terrace Waterproofing</option>
-  <option>Basement Waterproofing</option>
-  <option>Podium Waterproofing</option>
-  <option>Bathroom Waterproofing</option>
-  <option>Balcony Waterproofing</option>
-  <option>External Wall Waterproofing</option>
-  <option>Internal Wall Damp Treatment</option>
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input type="tel" id="phone" placeholder="Mobile Number" required>
+    </div>
 
-  <!-- Crack & Injection -->
-  <option>Crack Filling</option>
-  <option>PU Injection</option>
-  <option>Epoxy Grouting</option>
-  <option>Structural Crack Repair</option>
+    <div class="form-group">
+      <label>Select Service</label>
+      <select id="service" required>
+        <option value="">Select Service</option>
+        <option>Roof Waterproofing</option>
+        <option>Terrace Waterproofing</option>
+        <option>Basement Waterproofing</option>
+        <option>Podium Waterproofing</option>
+        <option>Bathroom Waterproofing</option>
+        <option>Balcony Waterproofing</option>
+        <option>External Wall Waterproofing</option>
+        <option>Internal Wall Damp Treatment</option>
+        <option>Crack Filling</option>
+        <option>PU Injection</option>
+        <option>Epoxy Grouting</option>
+        <option>Structural Crack Repair</option>
+        <option>Water Tank Waterproofing</option>
+        <option>Overhead Tank Waterproofing</option>
+        <option>Underground Tank Waterproofing</option>
+        <option>Swimming Pool Waterproofing</option>
+        <option>Sump Waterproofing</option>
+        <option>Commercial Building Waterproofing</option>
+        <option>Industrial Waterproofing</option>
+        <option>Factory Shed Waterproofing</option>
+        <option>Warehouse Waterproofing</option>
+        <option>Parking Slab Waterproofing</option>
+        <option>Heat Proofing</option>
+        <option>Terrace Cooling Coating</option>
+        <option>Anti-Carbonation Coating</option>
+        <option>Protective Coating</option>
+        <option>Leak Detection & Thermal Scanning</option>
+        <option>General Waterproofing Inspection</option>
+      </select>
+    </div>
 
-  <!-- Tank & Water Retention -->
-  <option>Water Tank Waterproofing</option>
-  <option>Overhead Tank Waterproofing</option>
-  <option>Underground Tank Waterproofing</option>
-  <option>Swimming Pool Waterproofing</option>
-  <option>Sump Waterproofing</option>
+    <div class="form-group">
+      <label>Your Message</label>
+      <textarea id="message" placeholder="Your message"></textarea>
+    </div>
 
-  <!-- Commercial / Industrial -->
-  <option>Commercial Building Waterproofing</option>
-  <option>Industrial Waterproofing</option>
-  <option>Factory Shed Waterproofing</option>
-  <option>Warehouse Waterproofing</option>
-  <option>Parking Slab Waterproofing</option>
+    <button type="submit" class="submit-btn">Submit Enquiry</button>
 
-  <!-- Coatings & Special -->
-  <option>Heat Proofing</option>
-  <option>Terrace Cooling Coating</option>
-  <option>Anti-Carbonation Coating</option>
-  <option>Protective Coating</option>
-  <option>Leak Detection & Thermal Scanning</option>
-  <option>General Waterproofing Inspection</option>
-</select>
-
-
-  <textarea id="message" placeholder="Your message"></textarea>
-
-  <button type="submit">Submit Enquiry</button>
-</form>
+  </form>
+</div>
 
 </section>
 
@@ -333,11 +345,7 @@ window.addEventListener('scroll',()=>{
   lastY=window.scrollY;
 });
 
-/* FORM DEMO SUBMIT */
-document.getElementById("contactForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  alert("Enquiry submitted successfully!");
-});
+
 </script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
@@ -386,5 +394,6 @@ document.getElementById("contactForm").addEventListener("submit",e=>{
 
 </body>
 </html>
+
 
 
