@@ -263,66 +263,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- FORM -->
-  <form class="contact-form" id="contactForm">
-    <div class="form-group">
-      <label>Full Name</label>
-      <input type="text" required>
-    </div>
+ <form onsubmit="event.preventDefault(); submitEnquiry();">
+  <input type="text" id="name" placeholder="Your Name" required>
+  <input type="tel" id="phone" placeholder="Mobile Number" required>
 
-    <div class="form-group">
-      <label>Mobile Number</label>
-      <input type="tel" required>
-    </div>
+ <select id="service" required>
+  <option value="">Select Service</option>
 
-    <div class="form-group">
-  <label>Select Service / Problem</label>
-  <select required>
-    <option value="">Choose Service / Problem</option>
+  <!-- Core Waterproofing -->
+  <option>Roof Waterproofing</option>
+  <option>Terrace Waterproofing</option>
+  <option>Basement Waterproofing</option>
+  <option>Podium Waterproofing</option>
+  <option>Bathroom Waterproofing</option>
+  <option>Balcony Waterproofing</option>
+  <option>External Wall Waterproofing</option>
+  <option>Internal Wall Damp Treatment</option>
 
-    <option>Balcony Waterproofing</option>
-    <option>Basement Waterproofing</option>
-    <option>Bathroom Epoxy Grouting</option>
-    <option>Brick Bat Waterproofing</option>
-    <option>Chemical Waterproofing</option>
-    <option>Epoxy Crack Injection</option>
-    <option>PU Flooring Coating</option>
-    <option>Epoxy Flooring</option>
-    <option>Expansion Joint Treatment</option>
-    <option>External Wall Coating</option>
-    <option>Foundation Waterproofing</option>
-    <option>Industrial Waterproofing</option>
-    <option>Injection Grouting + Tile Joints</option>
-    <option>Internal Wall Dampness</option>
-    <option>Leakage Detection</option>
-    <option>Lift Pit Waterproofing</option>
-    <option>PU Injection Grouting</option>
-    <option>RCC Crack Repair</option>
-    <option>Roof Waterproofing</option>
-    <option>Sunken Slab Waterproofing</option>
-    <option>Swimming Pool Waterproofing</option>
-    <option>Tank Waterproofing</option>
-    <option>Ceiling Leakage</option>
-    <option>External Waterproofing</option>
-    <option>External Wall Crack Filling</option>
-    <option>Kitchen Waterproofing</option>
-    <option>Heat Insulation Coating</option>
-    <option>Cementitious Polymer Coating</option>
-    <option>Acrylic Polymer Coating</option>
-    <option>Colorless PU Coating</option>
-    <option>China Mosaic Waterproofing</option>
+  <!-- Crack & Injection -->
+  <option>Crack Filling</option>
+  <option>PU Injection</option>
+  <option>Epoxy Grouting</option>
+  <option>Structural Crack Repair</option>
 
-    <option>Other Waterproofing Issue</option>
-  </select>
-</div>
+  <!-- Tank & Water Retention -->
+  <option>Water Tank Waterproofing</option>
+  <option>Overhead Tank Waterproofing</option>
+  <option>Underground Tank Waterproofing</option>
+  <option>Swimming Pool Waterproofing</option>
+  <option>Sump Waterproofing</option>
+
+  <!-- Commercial / Industrial -->
+  <option>Commercial Building Waterproofing</option>
+  <option>Industrial Waterproofing</option>
+  <option>Factory Shed Waterproofing</option>
+  <option>Warehouse Waterproofing</option>
+  <option>Parking Slab Waterproofing</option>
+
+  <!-- Coatings & Special -->
+  <option>Heat Proofing</option>
+  <option>Terrace Cooling Coating</option>
+  <option>Anti-Carbonation Coating</option>
+  <option>Protective Coating</option>
+  <option>Leak Detection & Thermal Scanning</option>
+  <option>General Waterproofing Inspection</option>
+</select>
 
 
-    <div class="form-group">
-      <label>Your Message</label>
-      <textarea placeholder="Describe the leakage issue..."></textarea>
-    </div>
+  <textarea id="message" placeholder="Your message"></textarea>
 
-    <button class="submit-btn" type="submit">Submit Enquiry</button>
-  </form>
+  <button type="submit">Submit Enquiry</button>
+</form>
 
 </section>
 
@@ -348,7 +339,52 @@ document.getElementById("contactForm").addEventListener("submit",e=>{
   alert("Enquiry submitted successfully!");
 });
 </script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } 
+  from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCNS-MVHsyAMM5PgV7GIHD6pN9aIFhvteE",
+    authDomain: "pawar-wateroroofing.firebaseapp.com",
+    projectId: "pawar-wateroroofing",
+    storageBucket: "pawar-wateroroofing.firebasestorage.app",
+    messagingSenderId: "301706506891",
+    appId: "1:301706506891:web:8fed5785cbae1c89c29a8e"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  window.submitEnquiry = async function () {
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !phone || !service) {
+      alert("Please fill all required fields");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "enquiries"), {
+        name,
+        phone,
+        service,
+        message,
+        createdAT: serverTimestamp()
+      });
+
+      alert("Enquiry submitted successfully");
+    } catch (error) {
+      console.error(error);
+      alert("Failed to submit enquiry");
+    }
+  };
+</script>
 
 </body>
 </html>
+
 
