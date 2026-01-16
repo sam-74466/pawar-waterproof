@@ -1,0 +1,155 @@
+:root{
+  --yellow:#facc15;
+  --black:#0b0b0b;
+  --dark:#141414;
+}
+
+*{
+  box-sizing:border-box;
+  font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+  margin:0;
+  background:var(--black);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ===== HERO SECTION ===== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.75), rgba(0,0,0,.85)),
+    url("../images/construction-bg.jpg");
+  background-size:cover;
+  background-position:center;
+  padding:80px 20px;
+}
+
+/* ===== RAIN CANVAS ===== */
+#rain{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+}
+
+/* ===== CONTENT ===== */
+.content{
+  position:relative;
+  z-index:2;
+  max-width:1200px;
+  margin:auto;
+}
+
+h1{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:10px;
+  color:var(--yellow);
+}
+
+.subtitle{
+  text-align:center;
+  max-width:680px;
+  margin:0 auto 55px;
+  color:#ccc;
+  font-size:17px;
+}
+
+/* ===== SERVICES GRID ===== */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:rgba(20,20,20,.88);
+  border:1px solid rgba(250,204,21,.25);
+  border-radius:16px;
+  padding:28px;
+  text-decoration:none;
+  color:#fff;
+  transition:.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, transparent, rgba(250,204,21,.12), transparent);
+  opacity:0;
+  transition:.3s;
+}
+
+.card:hover::after{opacity:1;}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:var(--yellow);
+}
+
+.card h3{
+  color:var(--yellow);
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+.card p{
+  color:#ddd;
+  font-size:15px;
+  line-height:1.6;
+}
+
+.card span{
+  display:inline-block;
+  margin-top:15px;
+  color:var(--yellow);
+  font-weight:600;
+}
+
+/* ===== SUB SERVICE LIST ===== */
+.sub-services{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+
+/* ===== CTA ===== */
+.cta{
+  margin-top:70px;
+  padding:35px;
+  border-radius:18px;
+  background:linear-gradient(135deg, #111, #1a1a1a);
+  border:1px solid rgba(250,204,21,.35);
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.cta h2{
+  color:var(--yellow);
+  margin:0;
+}
+
+.cta a{
+  padding:14px 28px;
+  background:var(--yellow);
+  color:#000;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:700;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  h1{font-size:32px;}
+}

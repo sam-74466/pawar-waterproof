@@ -1,0 +1,242 @@
+:root{
+  --yellow:#facc15;
+  --black:#0b0b0b;
+  --dark:#141414;
+  --soft:#1a1a1a;
+  --glass:rgba(255,255,255,.04);
+}
+
+*{
+  box-sizing:border-box;
+  font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+  margin:0;
+  background:var(--black);
+  color:#eee;
+}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top, rgba(250,204,21,.08), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.92)),
+    url("../images/construction-bg.jpg");
+  background-size:cover;
+  background-position:center;
+  padding:90px 20px;
+}
+
+#rain{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+.content{
+  position:relative;
+  z-index:2;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* ===== HEADER ===== */
+h1{
+  font-size:46px;
+  color:var(--yellow);
+  margin-bottom:10px;
+}
+
+.subtitle{
+  font-size:18px;
+  color:#d0d0d0;
+  max-width:760px;
+  margin-bottom:60px;
+}
+
+/* ===== GLASS CARD ===== */
+.block{
+  background:var(--glass);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(250,204,21,.25);
+  border-radius:18px;
+  padding:34px;
+  margin-bottom:40px;
+}
+
+.block h3{
+  color:var(--yellow);
+  margin-top:0;
+  font-size:23px;
+}
+
+.block p{
+  line-height:1.8;
+  color:#e5e5e5;
+}
+
+/* ===== PROCESS TIMELINE ===== */
+.timeline{
+  position:relative;
+  margin-top:20px;
+  padding-left:30px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:8px;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:rgba(250,204,21,.4);
+}
+
+.step{
+  position:relative;
+  margin-bottom:25px;
+  padding-left:25px;
+}
+
+.step::before{
+  content:"";
+  position:absolute;
+  left:-2px;
+  top:6px;
+  width:14px;
+  height:14px;
+  background:var(--yellow);
+  border-radius:50%;
+}
+
+.step strong{
+  color:var(--yellow);
+}
+
+/* ===== IMAGE GALLERY ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+  margin-top:20px;
+}
+
+.gallery div{
+  background:#111;
+  border-radius:14px;
+  padding:40px 20px;
+  text-align:center;
+  border:1px solid rgba(250,204,21,.2);
+  transition:.35s;
+}
+
+.gallery div:hover{
+  transform:translateY(-6px);
+  border-color:var(--yellow);
+}
+/* SERVICE IMAGE GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:16px;
+  margin-top:15px;
+}
+
+.gallery img{
+  width:100%;
+  height:150px;        /* CONTROLS IMAGE SIZE */
+  object-fit:cover;   /* CROPS, DOES NOT STRETCH */
+  border-radius:8px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.35);
+}
+
+/* ===== FAQ ===== */
+.faq{
+  border-top:1px solid rgba(250,204,21,.25);
+  padding-top:15px;
+  margin-top:15px;
+}
+
+.faq strong{
+  color:var(--yellow);
+}
+
+/* ===== CTA ===== */
+/* ===== CTA ===== */
+.cta{
+  margin-top:80px;
+  padding:45px;
+  border-radius:22px;
+  background:
+    linear-gradient(135deg, rgba(250,204,21,.15), transparent),
+    #111;
+  border:1px solid rgba(250,204,21,.5);
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  gap:25px;
+}
+
+.cta h2{
+  color:var(--yellow);
+  margin:0;
+  font-size:26px;
+}
+
+/* CTA Buttons */
+.cta-actions{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.cta-actions a{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 26px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:800;
+  font-size:15px;
+  transition:.3s;
+}
+
+/* Call Button */
+.cta-actions .call{
+  background:var(--yellow);
+  color:#000;
+}
+
+/* WhatsApp Button */
+.cta-actions .whatsapp{
+  background:#25D366;
+  color:#fff;
+}
+
+.cta-actions a:hover{
+  transform:translateY(-2px);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .cta{
+    padding:30px;
+  }
+  .cta h2{
+    font-size:22px;
+  }
+}
+
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  h1{font-size:34px;}
+  .subtitle{font-size:16px;}
+  .cta{padding:30px;}
+}
