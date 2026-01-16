@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gallery | Pawar Waterproofing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --yellow:#f5c400;
+  --gold:#d4af37;
+  --black:#0b0b0b;
+}
+
+body{
+  margin:0;
+  font-family:Poppins, Arial, sans-serif;
+  background:var(--black);
+  color:#eee;
+}
+
+/* HEADER */
+header{
+  background:#0b0b0b;
+  border-bottom:1px solid rgba(245,196,0,0.25);
+  padding:14px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+header a{color:#fff;text-decoration:none;font-weight:600;}
+nav a{margin-left:18px;color:#ccc;}
+nav a:hover{color:var(--yellow);}
+
+/* GALLERY */
+.gallery-section{
+  padding:90px 20px;
+  text-align:center;
+}
+.gallery-section h1{font-size:2.5rem;}
+.gallery-section h1 span{color:var(--yellow);}
+.gallery-section p{
+  color:#bbb;
+  max-width:700px;
+  margin:10px auto 50px;
+}
+
+/* GRID */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:22px;
+  max-width:1300px;
+  margin:auto;
+}
+.gallery-item{
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(245,196,0,0.25);
+  cursor:pointer;
+}
+.gallery-item img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+
+/* LOAD MORE */
+.load-more-wrap{margin-top:40px;}
+#loadMoreBtn{
+  background:var(--yellow);
+  color:#000;
+  border:none;
+  padding:12px 26px;
+  font-weight:600;
+  border-radius:30px;
+  cursor:pointer;
+}
+#loadMoreBtn:hover{background:var(--gold);}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:12px;
+}
+.lightbox span{
+  position:absolute;
+  top:20px;
+  right:25px;
+  font-size:32px;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* CTA */
+.floating-buttons{
+  position:fixed;
+  right:20px;
+  bottom:25px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:99999;
+  transition:transform 0.4s ease, opacity 0.4s ease;
+}
+.floating-buttons.hide{
+  transform:translateY(120px);
+  opacity:0;
+  pointer-events:none;
+}
+.float-btn{
+  background:var(--yellow);
+  color:#000;
+  border-radius:30px;
+  padding:10px 16px;
+  font-weight:600;
+  text-decoration:none;
+}
+.whatsapp{background:#25d366;}
+
+/* MOBILE */
+@media(max-width:600px){
+  .gallery-item img{height:180px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">Pawar Waterproofing</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about-us.html">About-US</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="gallery-section">
+  <h1>Project <span>Gallery</span></h1>
+  <p>Premium waterproofing projects completed across Pune.</p>
+
+  <div class="gallery-grid" id="galleryGrid"></div>
+
+  <div class="load-more-wrap">
+    <button id="loadMoreBtn">Load More</button>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="floating-buttons">
+  <a href="tel:+919226948412" class="float-btn">📞 +91 92269 48412</a>
+  <a href="https://wa.me/919226948412" class="float-btn whatsapp" target="_blank">🟢 +91 92269 48412</a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span>&times;</span>
+  <img id="lightboxImg">
+</div>
+
+<script>
+/* ===== ALL 30 SERVICES × 5 IMAGES ===== */
+const images = [
+
+  // 1. Acrylic Polymer Coating
+  ...[6,7,2,3,4,5].map(i => ({ src:`images/acrylic/acrylic${i}.jpg` })),
+
+  // 2. Balcony Waterproofing
+  ...[2,3,4,5].map(i => ({ src:`images/balcony/balcony${i}.jpg` })),
+
+  // 3. Basement Waterproofing
+  ...[6,2,3,4,5].map(i => ({ src:`images/basement/basement${i}.jpg` })),
+
+  // 4. Bathroom Epoxy Grouting
+  ...[2,3,4,5].map(i => ({ src:`images/bathroom/bathroom${i}.jpg` })),
+
+  // 5. Brick Bat Waterproofing
+  ...[2,3,4,5].map(i => ({ src:`images/brick-bat/brick-bat${i}.jpg` })),
+
+  // 6. Ceiling Leakage
+  ...[2,3,4,5].map(i => ({ src:`images/ceiling/ceiling${i}.jpg` })),
+
+  // 7. Cementitious Polymer Coating
+  ...[2,3,4,5].map(i => ({ src:`images/cementitious/cementitious${i}.jpg` })),
+
+  // 8. China Mosaic Waterproofing
+  ...[2,3,4,5].map(i => ({ src:`images/china-mosaic/china-mosaic${i}.jpg` })),
+
+  // 9. Epoxy Flooring
+  ...[2,3,4,5].map(i => ({ src:`images/epoxy-floor/epoxy-floor${i}.jpg` })),
+
+  // 10. Epoxy Crack Injection
+  ...[2,3,4,5].map(i => ({ src:`images/epoxy-injection/epoxy-injection${i}.jpg` })),
+
+  // 11. Expansion Joint Treatment
+  ...[2,3,4,5].map(i => ({ src:`images/expansion-joint/expansion-joint${i}.jpg` })),
+
+  // 12. External Wall Coating
+  ...[2,3,4].map(i => ({ src:`images/extarnal-coating/external-coating${i}.jpg` })),
+
+  // 13. External Wall Crack Filling
+  ...[2,3,4,5].map(i => ({ src:`images/external-crack/external-crack${i}.jpg` })),
+
+  // 14. External Wall Waterproofing
+  ...[2,3,4].map(i => ({ src:`images/external-wall/external-wall${i}.jpg` })),
+
+  // 15. Foundation Waterproofing
+  ...[2,3,4,5].map(i => ({ src:`images/foundation/foundation${i}.jpg` })),
+
+  // 16. Heat Insulation Coating
+  ...[2,3,4,5].map(i => ({ src:`images/heat-insulation/heat-insulation${i}.jpg` })),
+
+  // 17. Industrial Waterproofing
+  ...[2,3,4,5].map(i => ({ src:`images/industrial/industrial${i}.jpg` })),
+
+  // 18. Injection Grouting + Tile Joints
+  ...[2,3,4,5].map(i => ({ src:`images/injection-joint/injection-joint${i}.jpg` })),
+
+  // 19. Internal Wall Dampness
+  ...[2,3,4,5].map(i => ({ src:`images/internal-damp/internal-damp${i}.jpg` })),
+
+  // 20. Kitchen Waterproofing
+  ...[2,3,4,5].map(i => ({ src:`images/kitchen/kitchen${i}.jpg` })),
+
+  // 21. Leakage Detection
+  ...[2,3,4,5].map(i => ({ src:`images/leakage-detection/leakage-detection${i}.jpg` })),
+
+  // 22. Lift Pit Waterproofing
+  ...[2,3,4,5].map(i => ({ src:`images/lift-pit/lift-pit${i}.jpg` })),
+
+  // 23. Colorless PU Coating
+  ...[2,3,4,5].map(i => ({ src:`images/pu-clear/pu-clear${i}.jpg` })),
+
+  // 24. PU Flooring Coating
+  ...[2,3,4,5].map(i => ({ src:`images/pu-floor/pu-floor${i}.jpg` })),
+
+  // 25. PU Injection Grouting
+  ...[2,3,4,5].map(i => ({ src:`images/pu-injection/pu-injection${i}.jpg` })),
+
+  // 26. RCC Crack Repair
+  ...[2,3,4,5].map(i => ({ src:`images/rcc-crack/rcc-crack${i}.jpg` })),
+
+  // 27. Roof Waterproofing
+  ...[2,3,4,5].map(i => ({ src:`images/roof/roof${i}.jpg` })),
+
+  // 28. Sunken Slab Waterproofing
+  ...[2,3,4,5].map(i => ({ src:`images/sunken/sunken${i}.jpg` })),
+
+  // 29. Swimming Pool Waterproofing
+  ...[2,3,4,5].map(i => ({ src:`images/swimming-pool/swimming-pool${i}.jpg` })),
+
+  // 30. Tank Waterproofing
+  ...[2,3,4,5].map(i => ({ src:`images/tank/tank${i}.jpg` })),
+
+];
+
+
+const grid=document.getElementById('galleryGrid');
+const btn=document.getElementById('loadMoreBtn');
+let index=0, BATCH=12;
+
+function loadImages(){
+  const frag=document.createDocumentFragment();
+  for(let i=0;i<BATCH && index<images.length;i++,index++){
+    const d=document.createElement('div');
+    d.className='gallery-item';
+    d.innerHTML=`<img src="${images[index].src}" loading="lazy">`;
+    d.onclick=()=>openLightbox(d);
+    frag.appendChild(d);
+  }
+  grid.appendChild(frag);
+  if(index>=images.length) btn.style.display='none';
+}
+loadImages();
+btn.onclick=loadImages;
+
+function openLightbox(el){
+  document.getElementById("lightboxImg").src=el.querySelector("img").src;
+  document.getElementById("lightbox").style.display="flex";
+}
+function closeLightbox(){
+  document.getElementById("lightbox").style.display="none";
+}
+
+/* CTA AUTO HIDE */
+let lastY=window.scrollY;
+const cta=document.querySelector('.floating-buttons');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>lastY && window.scrollY>150) cta.classList.add('hide');
+  else cta.classList.remove('hide');
+  lastY=window.scrollY;
+});
+</script>
+
+</body>
+</html>

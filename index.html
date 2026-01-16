@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://unpkg.com/@studio-freight/lenis"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17611131260"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17611131260');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pawar Waterproofing - Waterproofing Experts in Pune</title>
+  <meta name="description" content="Protect your home from leaks with Pawar Waterproofing. 8+ years of experience, 15000+ happy clients, trusted across Pune.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#f5c400;      /* Yellow */
+  --gold:#d4af37;
+  --dark:#0b0b0b;
+  --dark2:#141414;
+  --light:#f9f9f9;
+  --radius:12px;
+  --transition:0.3s ease;
+}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--dark);
+  color:#eee;
+  overflow-x:hidden;
+}
+
+/* HEADER / NAVBAR */
+header{
+  background:rgba(11,11,11,0.95);
+  border-bottom:1px solid rgba(245,196,0,0.25);
+  padding:0.9rem 2rem;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  font-weight:700;
+  font-size:1.15rem;
+  text-decoration:none;
+}
+
+.logo img{
+  height:40px;
+  width:40px;
+  object-fit:contain;
+  border-radius:50%;
+  background:#fff;
+}
+
+.nav-links{
+  display:flex;
+  gap:1.6rem;
+}
+
+.nav-links a{
+  color:#ddd;
+  text-decoration:none;
+  font-weight:500;
+  transition:var(--transition);
+}
+
+.nav-links a:hover{
+  color:var(--primary);
+}
+
+/* HERO */
+.hero{
+  background:
+    linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),
+    url('https://images.unsplash.com/photo-1581091215367-59ab6b4a2b8e?auto=format&fit=crop&w=1400&q=80')
+    center/cover fixed;
+  color:#fff;
+  text-align:center;
+  padding:120px 20px;
+}
+
+.hero h1{
+  font-size:2.6rem;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.hero p{
+  font-size:1.1rem;
+  margin-bottom:30px;
+  color:#ddd;
+}
+
+.hero .btn{
+  background:var(--primary);
+  color:#000;
+  padding:12px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:var(--transition);
+}
+
+.hero .btn:hover{
+  background:var(--gold);
+}
+
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:22px;
+  text-align:center;
+  padding:70px 20px;
+  background:var(--dark2);
+  max-width:1150px;
+  margin:auto;
+}
+
+.stat{
+  background:#101010;
+  border-radius:var(--radius);
+  padding:30px;
+  border:1px solid rgba(245,196,0,0.2);
+  transition:var(--transition);
+}
+
+.stat:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.6);
+}
+
+.stat i{
+  font-size:2.1rem;
+  color:var(--primary);
+  margin-bottom:10px;
+}
+
+.stat h3{
+  margin:5px 0;
+  font-size:1.5rem;
+  color:var(--gold);
+}
+
+.stat p{
+  margin:0;
+  font-size:0.95rem;
+  color:#bbb;
+}
+
+/* HIGHLIGHTS */
+.highlights{
+  text-align:center;
+  padding:90px 20px;
+  background:#0e0e0e;
+}
+
+.highlights h2{
+  color:#fff;
+  margin-bottom:40px;
+  font-size:2.2rem;
+}
+
+.highlight-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  max-width:1150px;
+  margin:auto;
+}
+
+.highlight{
+  background:#121212;
+  border-radius:var(--radius);
+  padding:30px;
+  border:1px solid rgba(245,196,0,0.2);
+  transition:var(--transition);
+}
+
+.highlight:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.7);
+}
+
+.highlight i{
+  font-size:2rem;
+  color:var(--primary);
+  margin-bottom:12px;
+}
+
+.highlight h4{
+  margin-bottom:8px;
+  color:var(--gold);
+}
+
+/* TESTIMONIALS */
+.testimonials{
+  background:#0b0b0b;
+  color:#eee;
+  text-align:center;
+  padding:90px 20px;
+}
+
+.testimonials h2{
+  font-size:2.2rem;
+  margin-bottom:40px;
+}
+
+.testimonial{
+  max-width:750px;
+  margin:20px auto;
+  font-style:italic;
+  color:#ccc;
+}
+
+.testimonial span,
+.testimonial h4{
+  display:block;
+  margin-top:12px;
+  font-weight:600;
+  color:var(--primary);
+}
+
+/* FOOTER */
+footer{
+  background:#080808;
+  color:#aaa;
+  text-align:center;
+  padding:30px 15px;
+  font-size:0.9rem;
+  border-top:1px solid rgba(245,196,0,0.15);
+}
+
+/* FLOATING BUTTONS */
+.float-btn{
+  background:var(--primary);
+  color:#000;
+}
+
+.float-btn:hover{
+  background:var(--gold);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero h1{font-size:2rem}
+  .hero p{font-size:1rem}
+}
+/* FLOATING CTA BUTTONS FIX */
+.floating-buttons{
+  position: fixed;
+  right: 20px;
+  bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.float-btn{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: #000;
+  font-size: 1.2rem;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  transition: var(--transition);
+}
+
+.float-btn:hover{
+  background: var(--gold);
+  transform: scale(1.08);
+}
+
+/* Quote button style */
+.float-btn.quote{
+  width: auto;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+/* CTA BUTTON WITH NUMBER */
+.call-btn{
+  width:auto;
+  padding:10px 16px;
+  border-radius:30px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.95rem;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+/* WhatsApp color override */
+.whatsapp-btn{
+  background:#25d366;
+  color:#000;
+}
+
+.whatsapp-btn:hover{
+  background:#1ebe5d;
+}
+
+/* Mobile adjustment */
+@media (max-width:600px){
+  .call-btn{
+    font-size:0.85rem;
+    padding:9px 14px;
+  }
+}
+
+</style>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17798140427">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17798140427');
+</script>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">
+      <img src="https://i.postimg.cc/Xv53H14t/PW-BG-REMOVE.jpg" alt="Pawar Waterproofing Logo">
+      Pawar Waterproofing
+    </a>
+    <nav class="nav-links">
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+  </header>
+
+  <section class="hero">
+    <h1>Protect Your Home from Leaks</h1>
+    <p>Expert waterproofing services trusted by 15000+ clients in Pune. 8+ years of excellence.</p>
+    <a href="contact.html" class="btn">Get a Free Quote</a>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><i class="fas fa-calendar-check"></i><h3>8+ Years</h3><p>Industry Experience</p></div>
+    <div class="stat"><i class="fas fa-users"></i><h3>15000+</h3><p>Happy Clients</p></div>
+    <div class="stat"><i class="fas fa-star"></i><h3>4.9 / 5</h3><p>Average Rating</p></div>
+    <div class="stat"><i class="fas fa-city"></i><h3>15000+</h3><p>Projects Completed</p></div>
+  </section>
+
+  <section class="highlights">
+    <h2>Why Choose Pawar Waterproofing?</h2>
+    <div class="highlight-grid">
+      <div class="highlight">
+        <i class="fas fa-tools"></i>
+        <h4>Advanced Techniques</h4>
+        <p>We use top-grade PU, epoxy, and membrane systems for reliable sealing.</p>
+      </div>
+      <div class="highlight">
+        <i class="fas fa-certificate"></i>
+        <h4>Certified Team</h4>
+        <p>Our trained professionals ensure precision and long-lasting protection.</p>
+      </div>
+      <div class="highlight">
+        <i class="fas fa-clock"></i>
+        <h4>On-Time Delivery</h4>
+        <p>Quick, clean, and efficient service every time—without compromising quality.</p>
+      </div>
+      <div class="highlight">
+        <i class="fas fa-thumbs-up"></i>
+        <h4>Trusted Across Pune</h4>
+        <p>Serving homes and businesses in Warje, Baner, Hinjewadi, and all PMC & PCMC areas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial">
+      "After years of roof leakage, Pawar Waterproofing fixed it permanently. Excellent service and support!"
+      <span>— Rajesh M., Aundh</span>
+<div class="testimonial-grid">
+      <div class="testimonial">
+        <p>“Pawar Waterproofing team solved our terrace leakage in one day. Excellent service and reasonable cost.”</p>
+        <h4>– Rahul Deshmukh ⭐⭐⭐⭐⭐</h4>
+      </div>
+      <div class="testimonial">
+        <p>“Very professional and punctual. They used quality material and provided warranty. Highly recommended.”</p>
+        <h4>– Neha Patil ⭐⭐⭐⭐⭐</h4>
+      </div>
+      <div class="testimonial">
+        <p>“Best waterproofing service in Pune. They fixed our basement leakage permanently. Great experience!”</p>
+        <h4>– Amit Kulkarni ⭐⭐⭐⭐☆</h4>
+      </div>
+      <div class="testimonial">
+        <p>“Quick response and good behavior from the team. After 1 year, no leakage again. Very satisfied.”</p>
+        <h4>– Sneha More ⭐⭐⭐⭐⭐</h4>
+      </div>
+    </div>
+
+    <div class="google-link">
+      <a href="https://share.google/MoaE7UyIW7UTIHcPb" target="_blank">View More Reviews on Google →</a>
+    </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2016 Pawar Waterproofing | All Rights Reserved
+  </footer>
+
+<div class="floating-buttons">
+
+  <!-- CALL WITH NUMBER -->
+  <a href="tel:+919226948412" class="float-btn call-btn">
+    <i class="fas fa-phone"></i>
+    <span>+91 92269 48412</span>
+  </a>
+
+  <!-- WHATSAPP WITH NUMBER -->
+  <a href="https://wa.me/919226948412" class="float-btn call-btn whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span>+91 92269 48412</span>
+  </a>
+
+  <!-- QUOTE BUTTON -->
+  <a href="contact.html" class="float-btn quote">
+    Get Free Quote
+  </a>
+
+</div>
+
+
+  <script>
+    // You can later add scroll animations or counters
+  </script>
+  <script>
+  const lenis = new Lenis({
+    duration: 1.1,
+    smooth: true,
+    smoothTouch: true
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+</script>
+
+</body>
+</html>
