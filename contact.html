@@ -239,21 +239,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 <div class="contact-form">
 <form onsubmit="event.preventDefault(); submitEnquiry();">
 
-<div class="form-group">
-<label>Name</label>
-<input id="name" required>
-</div>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" id="name" placeholder="Your Name" required>
+  </div>
 
-<div class="form-group">
-<label>Phone</label>
-<input id="phone" required>
-</div>
+  <div class="form-group">
+    <label>Phone</label>
+    <input type="tel" id="phone" placeholder="Mobile Number" required>
+  </div>
 
-<div class="form-group">
-      <label>Select Service</label>
-      <select id="service" required>
-        <option value="">Select Service</option>
-        <option>Roof Waterproofing</option>
+  <div class="form-group">
+    <label>Select Service</label>
+    <select id="service" required>
+      <option value="">Select Service</option>
+     <option>Roof Waterproofing</option>
         <option>Terrace Waterproofing</option>
         <option>Basement Waterproofing</option>
         <option>Podium Waterproofing</option>
@@ -281,16 +281,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
         <option>Protective Coating</option>
         <option>Leak Detection & Thermal Scanning</option>
         <option>General Waterproofing Inspection</option>
-      </select>
-    </div>
+    </select>
+  </div>
 
-<div class="form-group">
-<label>Message</label>
-<textarea id="message"></textarea>
-</div>
+  <div class="form-group">
+    <label>Message</label>
+    <textarea id="message" placeholder="Your message"></textarea>
+  </div>
 
-<button class="submit-btn">Submit Enquiry</button>
+  <button type="submit" class="submit-btn">Submit Enquiry</button>
+
 </form>
+
 </div>
 
 </section>
@@ -331,3 +333,4 @@ window.submitEnquiry = async () => {
 
 </body>
 </html>
+
