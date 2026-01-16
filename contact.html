@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T92S2GPP');</script>
+})(window,document,'script','dataLayer','GTM-T92S2GPP');
+</script>
 <!-- End Google Tag Manager -->
+
 <meta charset="UTF-8">
 <title>Contact Us | Pawar Waterproofing</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +21,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --yellow:#f5c400;
   --gold:#d4af37;
   --black:#0b0b0b;
-  --dark:#141414;
 }
 
 body{
@@ -50,7 +53,6 @@ header{
 .logo img{
   height:38px;
   width:38px;
-  background:#fff;
   border-radius:50%;
 }
 
@@ -70,7 +72,7 @@ nav a:hover{color:var(--yellow);}
 .contact-hero h1{
   font-size:2.6rem;
 }
-.contact-hero h1 span{color:var(--yellow);}
+.contact-hero span{color:var(--yellow);}
 .contact-hero p{
   max-width:720px;
   margin:15px auto 0;
@@ -87,14 +89,13 @@ nav a:hover{color:var(--yellow);}
   padding:0 20px;
 }
 
-/* LEFT INFO */
+/* INFO */
 .contact-info{
   animation:slideLeft 1s ease forwards;
 }
 
 .contact-info h2{
   color:var(--gold);
-  margin-bottom:15px;
 }
 
 .info-box{
@@ -103,12 +104,6 @@ nav a:hover{color:var(--yellow);}
   border-radius:16px;
   padding:25px;
   margin-bottom:20px;
-}
-
-.info-box p{
-  color:#ccc;
-  margin:8px 0;
-  line-height:1.6;
 }
 
 /* FORM */
@@ -135,17 +130,17 @@ nav a:hover{color:var(--yellow);}
 .form-group textarea,
 .form-group select{
   width:100%;
+  box-sizing:border-box;
   background:#0b0b0b;
   border:1px solid rgba(245,196,0,0.3);
   border-radius:10px;
   padding:12px 14px;
   color:#fff;
-  font-size:0.95rem;
 }
 
 .form-group textarea{
-  resize:none;
   height:120px;
+  resize:none;
 }
 
 .form-group input:focus,
@@ -157,19 +152,17 @@ nav a:hover{color:var(--yellow);}
 
 .submit-btn{
   width:100%;
-  margin-top:10px;
   background:var(--yellow);
   color:#000;
   border:none;
   padding:14px;
-  font-size:1rem;
   font-weight:700;
   border-radius:30px;
   cursor:pointer;
 }
 .submit-btn:hover{background:var(--gold);}
 
-/* CTA FLOATING */
+/* FLOATING CTA */
 .floating-buttons{
   position:fixed;
   right:20px;
@@ -177,34 +170,24 @@ nav a:hover{color:var(--yellow);}
   display:flex;
   flex-direction:column;
   gap:12px;
-  z-index:99999;
-  transition:transform 0.4s ease, opacity 0.4s ease;
-}
-
-.floating-buttons.hide{
-  transform:translateY(120px);
-  opacity:0;
+  z-index:999;
 }
 
 .float-btn{
   background:var(--yellow);
   color:#000;
-  border-radius:30px;
   padding:10px 16px;
-  font-weight:600;
+  border-radius:30px;
   text-decoration:none;
+  font-weight:600;
 }
-
-.whatsapp{
-  background:#25d366;
-}
+.whatsapp{background:#25d366;}
 
 /* ANIMATIONS */
 @keyframes slideLeft{
   from{opacity:0;transform:translateX(-60px)}
   to{opacity:1;transform:translateX(0)}
 }
-
 @keyframes slideRight{
   from{opacity:0;transform:translateX(60px)}
   to{opacity:1;transform:translateX(0)}
@@ -213,76 +196,60 @@ nav a:hover{color:var(--yellow);}
 /* MOBILE */
 @media(max-width:900px){
   .contact-wrap{grid-template-columns:1fr}
-  .contact-hero h1{font-size:2.1rem}
-  .form-group input,
-.form-group textarea,
-.form-group select{
-  box-sizing:border-box;
-}
-
 }
 </style>
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T92S2GPP"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
+<!-- GTM noscript -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T92S2GPP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
 <header>
   <a href="index.html" class="logo">
-    <img src="images/services/logo.jpg" alt="Pawar Waterproofing Logo">
+    <img src="images/services/logo.jpg">
     Pawar Waterproofing
   </a>
   <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
-    <a href="about-us.html">About-US</a>
     <a href="gallery.html">Gallery</a>
-    
   </nav>
 </header>
 
 <section class="contact-hero">
   <h1>Get in <span>Touch</span></h1>
-  <p>Facing leakage or dampness? Share your details and our waterproofing expert will contact you shortly.</p>
+  <p>Facing leakage or dampness? Share your details and our expert will contact you.</p>
 </section>
 
 <section class="contact-wrap">
 
-  <!-- LEFT -->
-  <div class="contact-info">
-    <h2>Contact Details</h2>
-
-    <div class="info-box">
-      <p><strong>📍 Location:</strong><br>Pune, Maharashtra</p>
-      <p><strong>📞 Phone:</strong><br>+91 8605810586 / 9226948412</p>
-      <p><strong>🟢 WhatsApp:</strong><br>Available 9 AM – 8 PM</p>
-      <p><strong>🛠 Services:</strong><br>Residential & Commercial Waterproofing</p>
-    </div>
-
-    <div class="info-box">
-      <p>✔ Free site inspection</p>
-      <p>✔ Warranty on selected systems</p>
-      <p>✔ Trusted by 15000+ clients</p>
-    </div>
+<div class="contact-info">
+  <h2>Contact Details</h2>
+  <div class="info-box">
+    <p>📍 Pune, Maharashtra</p>
+    <p>📞 +91 8605810586 / 9226948412</p>
+    <p>🟢 WhatsApp Available</p>
   </div>
+</div>
 
-  <!-- FORM -->
 <div class="contact-form">
-  <form onsubmit="event.preventDefault(); submitEnquiry();">
+<form onsubmit="event.preventDefault(); submitEnquiry();">
 
-    <div class="form-group">
-      <label>Your Name</label>
-      <input type="text" id="name" placeholder="Your Name" required>
-    </div>
+<div class="form-group">
+<label>Name</label>
+<input id="name" required>
+</div>
 
-    <div class="form-group">
-      <label>Mobile Number</label>
-      <input type="tel" id="phone" placeholder="Mobile Number" required>
-    </div>
+<div class="form-group">
+<label>Phone</label>
+<input id="phone" required>
+</div>
 
-    <div class="form-group">
+<div class="form-group">
       <label>Select Service</label>
       <select id="service" required>
         <option value="">Select Service</option>
@@ -317,83 +284,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </select>
     </div>
 
-    <div class="form-group">
-      <label>Your Message</label>
-      <textarea id="message" placeholder="Your message"></textarea>
-    </div>
+<div class="form-group">
+<label>Message</label>
+<textarea id="message"></textarea>
+</div>
 
-    <button type="submit" class="submit-btn">Submit Enquiry</button>
-
-  </form>
+<button class="submit-btn">Submit Enquiry</button>
+</form>
 </div>
 
 </section>
 
-<!-- CTA -->
 <div class="floating-buttons">
-  <a href="tel:+919226948412" class="float-btn">📞 +91 92269 48412</a>
-  <a href="https://wa.me/919226948412" class="float-btn whatsapp" target="_blank">🟢 +91 92269 48412</a>
+<a href="tel:+919226948412" class="float-btn">📞 Call</a>
+<a href="https://wa.me/919226948412" class="float-btn whatsapp">🟢 WhatsApp</a>
 </div>
 
-<script>
-/* CTA AUTO HIDE */
-let lastY=window.scrollY;
-const cta=document.querySelector('.floating-buttons');
-window.addEventListener('scroll',()=>{
-  if(window.scrollY>lastY && window.scrollY>150) cta.classList.add('hide');
-  else cta.classList.remove('hide');
-  lastY=window.scrollY;
-});
-
-
-</script>
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, serverTimestamp } 
-  from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp }
+from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCNS-MVHsyAMM5PgV7GIHD6pN9aIFhvteE",
-    authDomain: "pawar-wateroroofing.firebaseapp.com",
-    projectId: "pawar-wateroroofing",
-    storageBucket: "pawar-wateroroofing.firebasestorage.app",
-    messagingSenderId: "301706506891",
-    appId: "1:301706506891:web:8fed5785cbae1c89c29a8e"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyCNS-MVHsyAMM5PgV7GIHD6pN9aIFhvteE",
+  authDomain: "pawar-wateroroofing.firebaseapp.com",
+  projectId: "pawar-wateroroofing",
+  storageBucket: "pawar-wateroroofing.firebasestorage.app",
+  messagingSenderId: "301706506891",
+  appId: "1:301706506891:web:8fed5785cbae1c89c29a8e"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-  window.submitEnquiry = async function () {
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const service = document.getElementById("service").value;
-    const message = document.getElementById("message").value.trim();
-
-    if (!name || !phone || !service) {
-      alert("Please fill all required fields");
-      return;
-    }
-
-    try {
-      await addDoc(collection(db, "enquiries"), {
-        name,
-        phone,
-        service,
-        message,
-        createdAT: serverTimestamp()
-      });
-
-      alert("Enquiry submitted successfully");
-    } catch (error) {
-      console.error(error);
-      alert("Failed to submit enquiry");
-    }
-  };
+window.submitEnquiry = async () => {
+  await addDoc(collection(db,"enquiries"),{
+    name:name.value,
+    phone:phone.value,
+    service:service.value,
+    message:message.value,
+    createdAT:serverTimestamp()
+  });
+  alert("Enquiry submitted successfully");
+};
 </script>
 
 </body>
 </html>
-
-
-
