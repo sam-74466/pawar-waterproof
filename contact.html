@@ -304,10 +304,21 @@ window.submitEnquiry = async function () {
     "_blank"
   );
 
-  alert("Enquiry submitted successfully");
-};
+    // Redirect to Thank You page
+  window.location.href = "thank-you.html";
+
+</script>
+<script>
+  function fireGoogleConversion() {
+    if (typeof gtag === "function") {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-10777195722/f3QcJC7p9gbMRp-5Io'
+      });
+    }
+  }
 </script>
 
 </body>
 </html>
+
 
