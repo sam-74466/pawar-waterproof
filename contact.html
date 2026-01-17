@@ -160,7 +160,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 
 <header>
   <a href="index.html" class="logo">
-    <img src="images/services/logo.jpg">
+    <img src="services/logo.jpg">
     Pawar Waterproofing
   </a>
   <nav>
@@ -296,17 +296,21 @@ window.submitEnquiry = async function () {
   });
 
   window.open(
-    "https://wa.me/919226948412?text=" +
-    encodeURIComponent(
-      "New Enquiry\nName:"+name+"\nPhone:"+phone+
-      "\nService:"+service+"\nMessage:"+message
-    ),
-    "_blank"
-  );
+  "https://wa.me/919226948412?text=" +
+  encodeURIComponent(
+    "New Enquiry\nName: " + name +
+    "\nPhone: " + phone +
+    "\nService: " + service +
+    "\nMessage: " + message
+  ),
+  "_blank"
+);
 
-    // Redirect to Thank You page
+// Redirect after WhatsApp opens
+setTimeout(() => {
   window.location.href = "thank-you.html";
-};
+}, 600);
+
 </script>
 <script>
   function fireGoogleConversion() {
@@ -320,6 +324,7 @@ window.submitEnquiry = async function () {
 
 </body>
 </html>
+
 
 
 
