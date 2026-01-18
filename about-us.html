@@ -332,6 +332,76 @@ nav a:hover{color:var(--yellow);}
   .nav-links{display:none;}
   .hamburger{display:flex;}
 }
+/* HAMBURGER */
+.hamburger{
+  width:32px;
+  height:24px;
+  display:none;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+  z-index:1002;
+}
+
+.hamburger span{
+  height:3px;
+  width:100%;
+  background:#f5c400; /* FIXED */
+  border-radius:2px;
+  transition:0.35s ease;
+}
+
+/* ☰ → ✕ */
+.hamburger.active span:nth-child(1){
+  transform:rotate(45deg) translate(6px,6px);
+}
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+.hamburger.active span:nth-child(3){
+  transform:rotate(-45deg) translate(6px,-6px);
+}
+
+/* MOBILE MENU */
+.mobile-nav{
+  position:fixed;
+  inset:0;
+  background:#0b0b0b;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:28px;
+  transform:translateX(100%);
+  transition:0.4s ease;
+  z-index:1001;
+}
+
+.mobile-nav a{
+  color:#fff;
+  font-size:1.6rem;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.mobile-nav a:hover{
+  color:#f5c400;
+}
+
+.mobile-nav.active{
+  transform:translateX(0);
+}
+
+/* RESPONSIVE */
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+}
+
+/* Prevent scroll when open */
+body.menu-open{
+  overflow:hidden;
+}
 
 </style>
 </head>
@@ -343,30 +413,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <header>
   <a href="index.html" class="logo">
-    <img src="services/logo.jpg" alt="Pawar Waterproofing Logo">
+    <img src="https://i.postimg.cc/Xv53H14t/PW-BG-REMOVE.jpg" alt="Logo">
     Pawar Waterproofing
   </a>
-  <nav class="nav-links">
-  <a href="services.html">Services</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="about-us.html">About Us</a>
-  <a href="contact.html">Contact</a>
-</nav>
 
-<!-- HAMBURGER -->
-<div class="hamburger" id="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
+  <!-- DESKTOP NAV -->
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about-us.html">About Us</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- HAMBURGER -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
 
 <!-- MOBILE MENU -->
 <div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
   <a href="services.html">Services</a>
-  <a href="gallery.html">Gallery</a>
   <a href="about-us.html">About Us</a>
+  <a href="gallery.html">Gallery</a>
   <a href="contact.html">Contact</a>
 </div>
+
 
 </header>
 
@@ -494,9 +570,32 @@ document.querySelectorAll(".mobile-nav a").forEach(link=>{
 </script>
 
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger");
+  const mobileNav = document.getElementById("mobileNav");
+
+  if (!hamburger || !mobileNav) return;
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    mobileNav.classList.toggle("active");
+    document.body.classList.toggle("menu-open");
+  });
+
+  document.querySelectorAll(".mobile-nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      mobileNav.classList.remove("active");
+      document.body.classList.remove("menu-open");
+    });
+  });
+});
+</script>
 
 </body>
 </html>
+
 
 
 
