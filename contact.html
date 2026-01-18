@@ -126,7 +126,7 @@ nav a:hover{color:var(--yellow);}
 @media(max-width:900px){
   .contact-wrap{grid-template-columns:1fr;}
 }
-  /* ===== HAMBURGER MENU ===== */
+/* HAMBURGER */
 .hamburger{
   width:32px;
   height:24px;
@@ -134,18 +134,18 @@ nav a:hover{color:var(--yellow);}
   flex-direction:column;
   justify-content:space-between;
   cursor:pointer;
-  z-index:1001;
+  z-index:1002;
 }
 
 .hamburger span{
   height:3px;
   width:100%;
-  background:#f5c400; /* yellow */
+  background:#f5c400; /* FIXED */
   border-radius:2px;
-  transition:0.4s ease;
+  transition:0.35s ease;
 }
 
-/* ☰ → ✕ animation */
+/* ☰ → ✕ */
 .hamburger.active span:nth-child(1){
   transform:rotate(45deg) translate(6px,6px);
 }
@@ -156,19 +156,19 @@ nav a:hover{color:var(--yellow);}
   transform:rotate(-45deg) translate(6px,-6px);
 }
 
-/* ===== MOBILE NAV ===== */
+/* MOBILE MENU */
 .mobile-nav{
   position:fixed;
   inset:0;
   background:#0b0b0b;
   display:flex;
   flex-direction:column;
-  align-items:center;
   justify-content:center;
-  gap:30px;
+  align-items:center;
+  gap:28px;
   transform:translateX(100%);
   transition:0.4s ease;
-  z-index:1000;
+  z-index:1001;
 }
 
 .mobile-nav a{
@@ -186,18 +186,17 @@ nav a:hover{color:var(--yellow);}
   transform:translateX(0);
 }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
+/* RESPONSIVE */
+@media (max-width:900px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
 }
 
-/* Lock scroll when menu open */
+/* Prevent scroll when open */
 body.menu-open{
   overflow:hidden;
 }
 
-</style>
 </head>
 
 <body>
@@ -209,7 +208,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 
 <header>
   <a href="index.html" class="logo">
-    <img src="https://i.postimg.cc/Xv53H14t/PW-BG-REMOVE.jpg" alt="Pawar Waterproofing Logo">
+    <img src="https://i.postimg.cc/Xv53H14t/PW-BG-REMOVE.jpg" alt="Logo">
     Pawar Waterproofing
   </a>
 
@@ -238,6 +237,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   <a href="gallery.html">Gallery</a>
   <a href="contact.html">Contact</a>
 </div>
+
 
 </header>
 
@@ -383,30 +383,31 @@ window.submitEnquiry = async function () {
 };
 </script>
 <script>
-const hamburger = document.getElementById("hamburger");
-const mobileNav = document.getElementById("mobileNav");
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger");
+  const mobileNav = document.getElementById("mobileNav");
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  mobileNav.classList.toggle("active");
-  document.body.classList.toggle(
-    "menu-open",
-    mobileNav.classList.contains("active")
-  );
-});
+  if (!hamburger || !mobileNav) return;
 
-/* Close menu when clicking a link */
-document.querySelectorAll(".mobile-nav a").forEach(link=>{
-  link.addEventListener("click",()=>{
-    hamburger.classList.remove("active");
-    mobileNav.classList.remove("active");
-    document.body.classList.remove("menu-open");
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    mobileNav.classList.toggle("active");
+    document.body.classList.toggle("menu-open");
+  });
+
+  document.querySelectorAll(".mobile-nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      mobileNav.classList.remove("active");
+      document.body.classList.remove("menu-open");
+    });
   });
 });
 </script>
 
 </body>
 </html>
+
 
 
 
