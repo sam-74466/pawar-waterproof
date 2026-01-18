@@ -283,32 +283,39 @@ window.submitEnquiry = async function () {
   const service = document.getElementById("service").value;
   const message = document.getElementById("message").value;
 
-  await addDoc(collection(db,"enquiries"),{
-    name, phone, service, message,
+  await addDoc(collection(db, "enquiries"), {
+    name,
+    phone,
+    service,
+    message,
     createdAT: serverTimestamp()
   });
 
-  emailjs.send("service_gilcmjr","template_cs3un9h",{
-    name, phone, service, message
+  emailjs.send("service_gilcmjr", "template_cs3un9h", {
+    name,
+    phone,
+    service,
+    message
   });
 
   window.open(
-  "https://wa.me/919226948412?text=" +
-  encodeURIComponent(
-    "New Enquiry\nName: " + name +
-    "\nPhone: " + phone +
-    "\nService: " + service +
-    "\nMessage: " + message
-  ),
-  "_blank"
-);
+    "https://wa.me/919226948412?text=" +
+    encodeURIComponent(
+      "New Enquiry\nName: " + name +
+      "\nPhone: " + phone +
+      "\nService: " + service +
+      "\nMessage: " + message
+    ),
+    "_blank"
+  );
 
-// Redirect after WhatsApp opens
-setTimeout(() => {
-  window.location.href = "thank-you.html";
-}, 600);
-
+  // ✅ Redirect after WhatsApp opens
+  setTimeout(() => {
+    window.location.href = "thank-you.html";
+  }, 600);
+};
 </script>
+
 <script>
   function fireGoogleConversion() {
     if (typeof gtag === "function") {
@@ -321,6 +328,7 @@ setTimeout(() => {
 
 </body>
 </html>
+
 
 
 
