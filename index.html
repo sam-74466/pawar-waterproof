@@ -30,28 +30,71 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- ✅ STRUCTURED DATA (LOCAL BUSINESS SEO BOOST) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Pawar Waterproofing",
-    "url": "https://pawarwaterproofing.com/",
-    "logo": "https://i.postimg.cc/Xv53H14t/PW-BG-REMOVE.jpg",
-    "image": "https://i.postimg.cc/Xv53H14t/PW-BG-REMOVE.jpg",
-    "telephone": "+91-9226948412",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Pune",
-      "addressRegion": "Maharashtra",
-      "postalCode": "411058",
-      "addressCountry": "IN"
-    },
-    "areaServed": "Pune",
-    "priceRange": "₹₹",
-    "description": "Trusted waterproofing contractor in Pune providing roof waterproofing, basement waterproofing, PU injection grouting, crack repair and terrace waterproofing services."
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "@id": "https://pawarwaterproofing.com/#business",
+  "name": "Pawar Waterproofing",
+  "url": "https://pawarwaterproofing.com/",
+  "logo": "https://i.postimg.cc/Xv53H14t/PW-BG-REMOVE.jpg",
+  "image": "https://i.postimg.cc/Xv53H14t/PW-BG-REMOVE.jpg",
+  "telephone": "+91-9226948412",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pune",
+    "addressRegion": "Maharashtra",
+    "postalCode": "411058",
+    "addressCountry": "IN"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Pune"
+  },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "₹₹",
+  "sameAs": [
+    "https://www.instagram.com/pawarwaterproofing",
+    "https://youtube.com/@devp8992",
+    "https://www.facebook.com/share/1D2WPCpHfy/"
+  ],
+  "description": "Professional waterproofing services in Pune including roof waterproofing, basement waterproofing, PU injection grouting, crack repair, terrace waterproofing and tank waterproofing.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Waterproofing Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Roof Waterproofing in Pune"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Basement Waterproofing in Pune"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "PU Injection Grouting"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Crack Repair Services"
+        }
+      }
+    ]
   }
-  </script>
-
+}
+</script>
   <!-- Your CSS (UNCHANGED) -->
 <style>
 :root{
@@ -615,6 +658,7 @@ document.querySelectorAll(".mobile-nav a").forEach(link=>{
 
 </body>
 </html>
+
 
 
 
